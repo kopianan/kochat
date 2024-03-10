@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "508377489981",
+    "project_id": "kochat-12b25",
+    "storage_bucket": "kochat-12b25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508377489981:android:0f3a9c224e5f8c88750054",
+        "android_client_info": {
+          "package_name": "com.example.kochat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508377489981-bkdr36ugoa2uo0erh3gksbqefq2nkf1u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kochat",
+            "certificate_hash": "67236e39e66940da721aad83da7cd6d8adaac5b6"
+          }
+        },
+        {
+          "client_id": "508377489981-dmh01ns9i0pp0grvf165180tr1a4al1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdVa2FCnQ_RRokZ7mpqMGFTfHy7-hO3vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508377489981-dmh01ns9i0pp0grvf165180tr1a4al1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "508377489981-cnth10pmas7cl00f5snl9irjv7husuuk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kochat.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508377489981:android:b517fc6677c2b2fc750054",
+        "android_client_info": {
+          "package_name": "com.kopianan.kopichat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508377489981-dmh01ns9i0pp0grvf165180tr1a4al1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdVa2FCnQ_RRokZ7mpqMGFTfHy7-hO3vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508377489981-dmh01ns9i0pp0grvf165180tr1a4al1k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "508377489981-cnth10pmas7cl00f5snl9irjv7husuuk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kochat.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
