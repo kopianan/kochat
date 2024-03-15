@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_chat_types/src/message.dart';
 import 'package:flutter_chat_types/src/user.dart';
 import 'package:flutter_chat_types/src/room.dart';
+import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -30,8 +31,11 @@ class ChatDataCubit extends Cubit<ChatDataState> {
     emit(state.copyWith(room: updatedRoom));
   }
 
-  void setRoomData(Room room) {
-    emit(state.copyWith(room: room));
+  void setRoomData(Room room, String currUserId) {
+    emit(state.copyWith(
+      room: room,
+      currentUser: User(id: currUserId),
+    ));
   }
 
   void setMessages(List<Message> messages) {

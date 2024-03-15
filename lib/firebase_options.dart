@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,16 +49,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBXSyzBx5zONjtWbx27V1T8K_1OYlV5IK0',
-    appId: '1:508377489981:web:a87252aba7fb2bea750054',
-    messagingSenderId: '508377489981',
-    projectId: 'kochat-12b25',
-    authDomain: 'kochat-12b25.firebaseapp.com',
-    storageBucket: 'kochat-12b25.appspot.com',
-    measurementId: 'G-384YS70G91',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAdVa2FCnQ_RRokZ7mpqMGFTfHy7-hO3vM',
     appId: '1:508377489981:android:b517fc6677c2b2fc750054',
@@ -63,23 +59,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDDHJ-8pwgxaAOh5_5epboDFZPQm4net-o',
-    appId: '1:508377489981:ios:99b78e83770e2974750054',
+    appId: '1:508377489981:ios:0eab401ebe8f1ede750054',
     messagingSenderId: '508377489981',
     projectId: 'kochat-12b25',
     storageBucket: 'kochat-12b25.appspot.com',
-    androidClientId: '508377489981-bkdr36ugoa2uo0erh3gksbqefq2nkf1u.apps.googleusercontent.com',
-    iosClientId: '508377489981-i00lrrf3qc8s80oeo865rddp71geul1c.apps.googleusercontent.com',
-    iosBundleId: 'com.example.kochat',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDDHJ-8pwgxaAOh5_5epboDFZPQm4net-o',
-    appId: '1:508377489981:ios:0e384274411c77c3750054',
-    messagingSenderId: '508377489981',
-    projectId: 'kochat-12b25',
-    storageBucket: 'kochat-12b25.appspot.com',
-    androidClientId: '508377489981-bkdr36ugoa2uo0erh3gksbqefq2nkf1u.apps.googleusercontent.com',
-    iosClientId: '508377489981-cnth10pmas7cl00f5snl9irjv7husuuk.apps.googleusercontent.com',
-    iosBundleId: 'com.example.kochat.RunnerTests',
+    androidClientId: '508377489981-49s1lef5pf0bhqtikrki4kkjqsk30lsh.apps.googleusercontent.com',
+    iosClientId: '508377489981-16da74ctb8c0ar3ta022k027bcvt18l3.apps.googleusercontent.com',
+    iosBundleId: 'com.kopianan.kopichat',
   );
 }

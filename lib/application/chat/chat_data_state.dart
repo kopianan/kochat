@@ -6,13 +6,15 @@ class ChatDataState with _$ChatDataState {
   const factory ChatDataState({
     @Default([]) List<Message> messages,
     Room? room,
+    required User currentUser,
   }) = _ChatDataState;
-  factory ChatDataState.initial() => const ChatDataState();
+  factory ChatDataState.initial() =>
+      const ChatDataState(currentUser: User(id: ""));
   String get getRoomId => room?.id ?? "";
 
   User getAuthor() {
     if (room != null) {
-      return room!.users.first;
+      return room!.users.firstWhere((element) => element.id == currentUser.id);
     }
     throw Exception();
   }

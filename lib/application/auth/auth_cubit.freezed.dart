@@ -21,7 +21,7 @@ mixin _$AuthState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -32,7 +32,7 @@ mixin _$AuthState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -43,7 +43,7 @@ mixin _$AuthState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
@@ -144,7 +144,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -158,7 +158,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -172,7 +172,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
@@ -276,7 +276,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -290,7 +290,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -304,7 +304,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
@@ -408,7 +408,7 @@ class _$RegisterSuccessImpl implements _RegisterSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -422,7 +422,7 @@ class _$RegisterSuccessImpl implements _RegisterSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -436,7 +436,7 @@ class _$RegisterSuccessImpl implements _RegisterSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
@@ -504,6 +504,8 @@ abstract class _$$LoginSuccessImplCopyWith<$Res> {
   factory _$$LoginSuccessImplCopyWith(
           _$LoginSuccessImpl value, $Res Function(_$LoginSuccessImpl) then) =
       __$$LoginSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User currUser});
 }
 
 /// @nodoc
@@ -513,26 +515,51 @@ class __$$LoginSuccessImplCopyWithImpl<$Res>
   __$$LoginSuccessImplCopyWithImpl(
       _$LoginSuccessImpl _value, $Res Function(_$LoginSuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currUser = null,
+  }) {
+    return _then(_$LoginSuccessImpl(
+      null == currUser
+          ? _value.currUser
+          : currUser // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoginSuccessImpl implements _LoginSuccess {
-  const _$LoginSuccessImpl();
+  const _$LoginSuccessImpl(this.currUser);
+
+  @override
+  final User currUser;
 
   @override
   String toString() {
-    return 'AuthState.loginSuccess()';
+    return 'AuthState.loginSuccess(currUser: $currUser)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginSuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoginSuccessImpl &&
+            (identical(other.currUser, currUser) ||
+                other.currUser == currUser));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, currUser);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoginSuccessImplCopyWith<_$LoginSuccessImpl> get copyWith =>
+      __$$LoginSuccessImplCopyWithImpl<_$LoginSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -540,12 +567,12 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
   }) {
-    return loginSuccess();
+    return loginSuccess(currUser);
   }
 
   @override
@@ -554,12 +581,12 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
   }) {
-    return loginSuccess?.call();
+    return loginSuccess?.call(currUser);
   }
 
   @override
@@ -568,14 +595,14 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
-      return loginSuccess();
+      return loginSuccess(currUser);
     }
     return orElse();
   }
@@ -628,7 +655,12 @@ class _$LoginSuccessImpl implements _LoginSuccess {
 }
 
 abstract class _LoginSuccess implements AuthState {
-  const factory _LoginSuccess() = _$LoginSuccessImpl;
+  const factory _LoginSuccess(final User currUser) = _$LoginSuccessImpl;
+
+  User get currUser;
+  @JsonKey(ignore: true)
+  _$$LoginSuccessImplCopyWith<_$LoginSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -698,7 +730,7 @@ class _$OnAuthCheckedImpl implements _OnAuthChecked {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -712,7 +744,7 @@ class _$OnAuthCheckedImpl implements _OnAuthChecked {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -726,7 +758,7 @@ class _$OnAuthCheckedImpl implements _OnAuthChecked {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
@@ -872,7 +904,7 @@ class _$RegisterFailedImpl implements _RegisterFailed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -886,7 +918,7 @@ class _$RegisterFailedImpl implements _RegisterFailed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -900,7 +932,7 @@ class _$RegisterFailedImpl implements _RegisterFailed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,
@@ -1046,7 +1078,7 @@ class _$LoginFailedImpl implements _LoginFailed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() registerSuccess,
-    required TResult Function() loginSuccess,
+    required TResult Function(User currUser) loginSuccess,
     required TResult Function(User? user) onAuthChecked,
     required TResult Function(AuthFailure failure) registerFailed,
     required TResult Function(AuthFailure failure) loginFailed,
@@ -1060,7 +1092,7 @@ class _$LoginFailedImpl implements _LoginFailed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? registerSuccess,
-    TResult? Function()? loginSuccess,
+    TResult? Function(User currUser)? loginSuccess,
     TResult? Function(User? user)? onAuthChecked,
     TResult? Function(AuthFailure failure)? registerFailed,
     TResult? Function(AuthFailure failure)? loginFailed,
@@ -1074,7 +1106,7 @@ class _$LoginFailedImpl implements _LoginFailed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? registerSuccess,
-    TResult Function()? loginSuccess,
+    TResult Function(User currUser)? loginSuccess,
     TResult Function(User? user)? onAuthChecked,
     TResult Function(AuthFailure failure)? registerFailed,
     TResult Function(AuthFailure failure)? loginFailed,

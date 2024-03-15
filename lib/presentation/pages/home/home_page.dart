@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:kochat/application/authentication/cubit/authentication_cubit.dart';
 import 'package:kochat/application/room/room_cubit.dart';
 import 'package:flutter_chat_types/src/room.dart';
 import 'package:kochat/injection.dart';
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 itemBuilder: (context, index) {
                   final room = e.room[index];
-                  var last = room.lastMessages?[0] as types.TextMessage;
+                  var last = room.lastMessages?[0] as types.TextMessage?;
 
                   return ListTile(
                     onTap: () {
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                             .hour
                             .toString()),
                     title: Text(room.name ?? ""),
-                    subtitle: Text(last.text ?? ""),
+                    subtitle: Text(last?.text ?? ""),
                     leading: CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(room.imageUrl ?? "")),
@@ -69,6 +70,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          print(getIt<AuthenticationCubit>().state.currentChatUser) ; 
           context.router.push(const FriendRoute());
         },
       ),

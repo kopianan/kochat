@@ -5,6 +5,7 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_types/src/room.dart';
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
+import 'package:kochat/application/authentication/cubit/authentication_cubit.dart';
 // import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:kochat/application/chat/chat_data_cubit.dart';
 import 'package:kochat/application/room/room_cubit.dart';
@@ -34,12 +35,20 @@ class _ChatPageState extends State<ChatPage> {
     super.dispose();
   }
 
+  final authenticationCubit = getIt<AuthenticationCubit>();
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => chatDataCubit..setRoomData(widget.room),
+          create: (context) => chatDataCubit
+            ..setRoomData(
+                widget.room, authenticationCubit.state.getCurrentUserId),
         ),
         BlocProvider(
           create: (context) => roomCubit..streamMessages(widget.room),
@@ -63,6 +72,8 @@ class _ChatPageState extends State<ChatPage> {
               return Chat(
                 messages: state.messages,
                 showUserNames: true,
+                showUserAvatars: true,
+                onAttachmentPressed: () {},
                 onSendPressed: (text) {
                   final messages = types.PartialText(
                     text: text.text,

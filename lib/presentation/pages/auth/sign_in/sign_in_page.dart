@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kochat/application/auth/auth_cubit.dart';
+import 'package:kochat/application/authentication/cubit/authentication_cubit.dart';
 import 'package:kochat/injection.dart';
 import 'package:kochat/presentation/routes/kopi_router.dart';
 import 'package:kochat/presentation/widgets/primary_button.dart';
@@ -33,10 +34,8 @@ class _SignInPageState extends State<SignInPage> {
             loginFailed: (e) {
               print(e.toString());
             },
-            registerSuccess: (value) {
-              getIt<KopiRouter>().push(const HomeRoute());
-            },
             loginSuccess: (value) {
+              getIt<AuthenticationCubit>().setChatCurrentUser(value.currUser);
               getIt<KopiRouter>().replaceAll([const HomeRoute()]);
             },
           );
@@ -120,9 +119,8 @@ class _SignInPageState extends State<SignInPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         text: "Sign in with Google",
-                        onPressed: () async{
-                          final result = await GoogleSignIn(scopes: ['email']).signIn();
-                          print(result); 
+                        onPressed: () async {
+                          authCubi.registerUsingGoogle();
                         },
                       ),
                     ),

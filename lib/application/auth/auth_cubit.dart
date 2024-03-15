@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kochat/domain/auth/auth_failure.dart';
@@ -46,7 +47,20 @@ class AuthCubit extends Cubit<AuthState> {
         emit(AuthState.loginFailed(l));
       },
       (r) {
-        emit(const AuthState.loginSuccess());
+        emit(AuthState.loginSuccess(r));
+      },
+    );
+  }
+
+  void registerUsingGoogle() async {
+    emit(const AuthState.loading());
+    final result = await authRepository.registerWithGoogle();
+    result.fold(
+      (l) {
+        emit(AuthState.loginFailed(l));
+      },
+      (r) {
+        emit(AuthState.loginSuccess(r));
       },
     );
   }

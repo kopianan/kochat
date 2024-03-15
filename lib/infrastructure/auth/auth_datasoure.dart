@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -19,7 +20,7 @@ class AuthDatasoure implements AuthRepository {
     final chatUser = chatType.User(
       firstName: user.displayName ?? "",
       id: user.uid,
-      imageUrl: 'https://i.pravatar.cc/300',
+      imageUrl: user.photoURL ?? 'https://i.pravatar.cc/300',
       createdAt: DateTime.now().millisecondsSinceEpoch,
       updatedAt: DateTime.now().millisecondsSinceEpoch,
     );
@@ -64,15 +65,18 @@ class AuthDatasoure implements AuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
+  Future<Either<AuthFailure, User>> signInWithEmailAndPassword(
       {required String emailAddress, required String password}) async {
     try {
-      await firebaseAuth.signInWithEmailAndPassword(
+      final user = await firebaseAuth.signInWithEmailAndPassword(
         email: emailAddress,
         password: password,
       );
-
-      return right(unit);
+      final fbUser = user.user;
+      if (fbUser != null) {
+        return right(fbUser);
+      }
+      return left(const AuthFailure.userNotFound());
     } on auth.FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         return left(const AuthFailure.userNotFound());
@@ -85,43 +89,23 @@ class AuthDatasoure implements AuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
+  Future<Either<AuthFailure, User>> registerWithGoogle() async {
     try {
       final googleUser = await googleSignIn.signIn();
 
-      if (googleUser == null) {
-        final googleAuth = await googleUser?.authentication;
+      if (googleUser != null) {
+        final googleAuth = await googleUser.authentication;
         //user exist.
         final credential = auth.GoogleAuthProvider.credential(
-            accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
-        await firebaseAuth.signInWithCredential(credential);
-        return right(unit);
-      } else {
-        return left(const AuthFailure.cancelledByUser());
-      }
-    } catch (e) {
-      return left(const AuthFailure.serverError());
-    }
-  }
-
-  @override
-  Future<Either<AuthFailure, Unit>> registerWithGoogle() async {
-    try {
-      final googleUser = await googleSignIn.signIn();
-
-      if (googleUser == null) {
-        final googleAuth = await googleUser?.authentication;
-        //user exist.
-        final credential = auth.GoogleAuthProvider.credential(
-          accessToken: googleAuth?.accessToken,
-          idToken: googleAuth?.idToken,
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
         );
 
         final result = await firebaseAuth.signInWithCredential(credential);
         final user = result.user;
         if (user != null) {
           _createUserOnFirestore(user);
-          return right(unit);
+          return right(user);
         }
         return left(const AuthFailure.userNotFound());
       } else {

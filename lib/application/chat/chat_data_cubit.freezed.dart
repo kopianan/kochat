@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ChatDataState {
   List<Message> get messages => throw _privateConstructorUsedError;
-  Room? get room => throw _privateConstructorUsedError;
+  types.Room? get room => throw _privateConstructorUsedError;
+  types.User get currentUser => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatDataStateCopyWith<ChatDataState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $ChatDataStateCopyWith<$Res> {
           ChatDataState value, $Res Function(ChatDataState) then) =
       _$ChatDataStateCopyWithImpl<$Res, ChatDataState>;
   @useResult
-  $Res call({List<Message> messages, Room? room});
+  $Res call({List<Message> messages, types.Room? room, types.User currentUser});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$ChatDataStateCopyWithImpl<$Res, $Val extends ChatDataState>
   $Res call({
     Object? messages = null,
     Object? room = freezed,
+    Object? currentUser = null,
   }) {
     return _then(_value.copyWith(
       messages: null == messages
@@ -57,7 +59,11 @@ class _$ChatDataStateCopyWithImpl<$Res, $Val extends ChatDataState>
       room: freezed == room
           ? _value.room
           : room // ignore: cast_nullable_to_non_nullable
-              as Room?,
+              as types.Room?,
+      currentUser: null == currentUser
+          ? _value.currentUser
+          : currentUser // ignore: cast_nullable_to_non_nullable
+              as types.User,
     ) as $Val);
   }
 }
@@ -70,7 +76,7 @@ abstract class _$$ChatDataStateImplCopyWith<$Res>
       __$$ChatDataStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Message> messages, Room? room});
+  $Res call({List<Message> messages, types.Room? room, types.User currentUser});
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class __$$ChatDataStateImplCopyWithImpl<$Res>
   $Res call({
     Object? messages = null,
     Object? room = freezed,
+    Object? currentUser = null,
   }) {
     return _then(_$ChatDataStateImpl(
       messages: null == messages
@@ -95,7 +102,11 @@ class __$$ChatDataStateImplCopyWithImpl<$Res>
       room: freezed == room
           ? _value.room
           : room // ignore: cast_nullable_to_non_nullable
-              as Room?,
+              as types.Room?,
+      currentUser: null == currentUser
+          ? _value.currentUser
+          : currentUser // ignore: cast_nullable_to_non_nullable
+              as types.User,
     ));
   }
 }
@@ -104,7 +115,9 @@ class __$$ChatDataStateImplCopyWithImpl<$Res>
 
 class _$ChatDataStateImpl extends _ChatDataState {
   const _$ChatDataStateImpl(
-      {final List<Message> messages = const [], this.room})
+      {final List<Message> messages = const [],
+      this.room,
+      required this.currentUser})
       : _messages = messages,
         super._();
 
@@ -118,11 +131,13 @@ class _$ChatDataStateImpl extends _ChatDataState {
   }
 
   @override
-  final Room? room;
+  final types.Room? room;
+  @override
+  final types.User currentUser;
 
   @override
   String toString() {
-    return 'ChatDataState(messages: $messages, room: $room)';
+    return 'ChatDataState(messages: $messages, room: $room, currentUser: $currentUser)';
   }
 
   @override
@@ -131,12 +146,14 @@ class _$ChatDataStateImpl extends _ChatDataState {
         (other.runtimeType == runtimeType &&
             other is _$ChatDataStateImpl &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
-            (identical(other.room, room) || other.room == room));
+            (identical(other.room, room) || other.room == room) &&
+            (identical(other.currentUser, currentUser) ||
+                other.currentUser == currentUser));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_messages), room);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_messages), room, currentUser);
 
   @JsonKey(ignore: true)
   @override
@@ -147,13 +164,17 @@ class _$ChatDataStateImpl extends _ChatDataState {
 
 abstract class _ChatDataState extends ChatDataState {
   const factory _ChatDataState(
-      {final List<Message> messages, final Room? room}) = _$ChatDataStateImpl;
+      {final List<Message> messages,
+      final types.Room? room,
+      required final types.User currentUser}) = _$ChatDataStateImpl;
   const _ChatDataState._() : super._();
 
   @override
   List<Message> get messages;
   @override
-  Room? get room;
+  types.Room? get room;
+  @override
+  types.User get currentUser;
   @override
   @JsonKey(ignore: true)
   _$$ChatDataStateImplCopyWith<_$ChatDataStateImpl> get copyWith =>
