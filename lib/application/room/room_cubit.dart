@@ -41,4 +41,13 @@ class RoomCubit extends Cubit<RoomState> {
   void updateRoom(types.Room room) async {
     final result = await roomRepository.updateRoom(room);
   }
+
+  void createRoom(types.User otherUser) async {
+    emit(const RoomState.loading());
+    final result = await roomRepository.createSingleRoom(otherUser);
+    result.fold(
+      (l) => null,
+      (r) => emit(RoomState.onRoomCreated(r)),
+    );
+  }
 }

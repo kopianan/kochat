@@ -35,7 +35,6 @@ class _SignInPageState extends State<SignInPage> {
               print(e.toString());
             },
             loginSuccess: (value) {
-              getIt<AuthenticationCubit>().setChatCurrentUser(value.currUser);
               getIt<KopiRouter>().replaceAll([const HomeRoute()]);
             },
           );

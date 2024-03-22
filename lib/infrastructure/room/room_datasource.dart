@@ -49,4 +49,15 @@ class RoomDatasource implements RoomRepository {
       return left(const RoomFailure.serverError());
     }
   }
+
+  @override
+  Future<Either<RoomFailure, types.Room>> createSingleRoom(
+      types.User otherUser) async {
+    try {
+      final room = await fbChat.createRoom(otherUser);
+      return right(room);
+    } catch (e) {
+      return left(const RoomFailure.serverError());
+    }
+  }
 }

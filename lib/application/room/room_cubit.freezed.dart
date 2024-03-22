@@ -19,8 +19,10 @@ mixin _$RoomState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -29,8 +31,10 @@ mixin _$RoomState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -39,8 +43,10 @@ mixin _$RoomState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -50,8 +56,10 @@ mixin _$RoomState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -60,8 +68,10 @@ mixin _$RoomState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -70,8 +80,10 @@ mixin _$RoomState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
@@ -136,8 +148,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -149,8 +163,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -162,8 +178,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -179,8 +197,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -192,8 +212,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -205,8 +227,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
@@ -221,6 +245,144 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements RoomState {
   const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$RoomStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'RoomState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() onWatchRoomError,
+    required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
+    required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(List<Message> messages) onWatchMessages,
+    required TResult Function(List<Room> room) onWatchRooms,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? onWatchRoomError,
+    TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
+    TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(List<Message> messages)? onWatchMessages,
+    TResult? Function(List<Room> room)? onWatchRooms,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? onWatchRoomError,
+    TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
+    TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(List<Message> messages)? onWatchMessages,
+    TResult Function(List<Room> room)? onWatchRooms,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_OnWatchRoomError value) onWatchRoomError,
+    required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
+    required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnWatchMessages value) onWatchMessages,
+    required TResult Function(_OnWatchRooms value) onWatchRooms,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
+    TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
+    TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnWatchMessages value)? onWatchMessages,
+    TResult? Function(_OnWatchRooms value)? onWatchRooms,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_OnWatchRoomError value)? onWatchRoomError,
+    TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
+    TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnWatchMessages value)? onWatchMessages,
+    TResult Function(_OnWatchRooms value)? onWatchRooms,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements RoomState {
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
@@ -262,8 +424,10 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -275,8 +439,10 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -288,8 +454,10 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -305,8 +473,10 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -318,8 +488,10 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -331,8 +503,10 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
@@ -389,8 +563,10 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -402,8 +578,10 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -415,8 +593,10 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -432,8 +612,10 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -445,8 +627,10 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -458,8 +642,10 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
@@ -474,6 +660,175 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
 
 abstract class _OnWatchMessageError implements RoomState {
   const factory _OnWatchMessageError() = _$OnWatchMessageErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$OnRoomCreatedImplCopyWith<$Res> {
+  factory _$$OnRoomCreatedImplCopyWith(
+          _$OnRoomCreatedImpl value, $Res Function(_$OnRoomCreatedImpl) then) =
+      __$$OnRoomCreatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({types.Room room});
+}
+
+/// @nodoc
+class __$$OnRoomCreatedImplCopyWithImpl<$Res>
+    extends _$RoomStateCopyWithImpl<$Res, _$OnRoomCreatedImpl>
+    implements _$$OnRoomCreatedImplCopyWith<$Res> {
+  __$$OnRoomCreatedImplCopyWithImpl(
+      _$OnRoomCreatedImpl _value, $Res Function(_$OnRoomCreatedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? room = null,
+  }) {
+    return _then(_$OnRoomCreatedImpl(
+      null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as types.Room,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnRoomCreatedImpl implements _OnRoomCreated {
+  const _$OnRoomCreatedImpl(this.room);
+
+  @override
+  final types.Room room;
+
+  @override
+  String toString() {
+    return 'RoomState.onRoomCreated(room: $room)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnRoomCreatedImpl &&
+            (identical(other.room, room) || other.room == room));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, room);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnRoomCreatedImplCopyWith<_$OnRoomCreatedImpl> get copyWith =>
+      __$$OnRoomCreatedImplCopyWithImpl<_$OnRoomCreatedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() onWatchRoomError,
+    required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
+    required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(List<Message> messages) onWatchMessages,
+    required TResult Function(List<Room> room) onWatchRooms,
+  }) {
+    return onRoomCreated(room);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? onWatchRoomError,
+    TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
+    TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(List<Message> messages)? onWatchMessages,
+    TResult? Function(List<Room> room)? onWatchRooms,
+  }) {
+    return onRoomCreated?.call(room);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? onWatchRoomError,
+    TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
+    TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(List<Message> messages)? onWatchMessages,
+    TResult Function(List<Room> room)? onWatchRooms,
+    required TResult orElse(),
+  }) {
+    if (onRoomCreated != null) {
+      return onRoomCreated(room);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_OnWatchRoomError value) onWatchRoomError,
+    required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
+    required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnWatchMessages value) onWatchMessages,
+    required TResult Function(_OnWatchRooms value) onWatchRooms,
+  }) {
+    return onRoomCreated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
+    TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
+    TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnWatchMessages value)? onWatchMessages,
+    TResult? Function(_OnWatchRooms value)? onWatchRooms,
+  }) {
+    return onRoomCreated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_OnWatchRoomError value)? onWatchRoomError,
+    TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
+    TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnWatchMessages value)? onWatchMessages,
+    TResult Function(_OnWatchRooms value)? onWatchRooms,
+    required TResult orElse(),
+  }) {
+    if (onRoomCreated != null) {
+      return onRoomCreated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnRoomCreated implements RoomState {
+  const factory _OnRoomCreated(final types.Room room) = _$OnRoomCreatedImpl;
+
+  types.Room get room;
+  @JsonKey(ignore: true)
+  _$$OnRoomCreatedImplCopyWith<_$OnRoomCreatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -543,8 +898,10 @@ class _$OnMessageSentImpl implements _OnMessageSent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -556,8 +913,10 @@ class _$OnMessageSentImpl implements _OnMessageSent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -569,8 +928,10 @@ class _$OnMessageSentImpl implements _OnMessageSent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -586,8 +947,10 @@ class _$OnMessageSentImpl implements _OnMessageSent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -599,8 +962,10 @@ class _$OnMessageSentImpl implements _OnMessageSent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -612,8 +977,10 @@ class _$OnMessageSentImpl implements _OnMessageSent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
@@ -709,8 +1076,10 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -722,8 +1091,10 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -735,8 +1106,10 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -752,8 +1125,10 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -765,8 +1140,10 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -778,8 +1155,10 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
@@ -873,8 +1252,10 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() onWatchRoomError,
     required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
@@ -886,8 +1267,10 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function()? onWatchRoomError,
     TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
@@ -899,8 +1282,10 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? onWatchRoomError,
     TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
@@ -916,8 +1301,10 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_OnWatchRoomError value) onWatchRoomError,
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
@@ -929,8 +1316,10 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
@@ -942,8 +1331,10 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_OnWatchRoomError value)? onWatchRoomError,
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,

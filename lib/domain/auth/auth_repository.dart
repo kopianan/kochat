@@ -8,9 +8,11 @@ abstract class AuthRepository {
     required String password,
   });
   Future<Either<AuthFailure, User>> registerWithGoogle();
+  Future<Either<AuthFailure, User>> getCurrentUser();
   Future<Either<AuthFailure, User>> signInWithEmailAndPassword({
     required String emailAddress,
     required String password,
   });
   Future<Either<AuthFailure, User>> authCheck();
+
 }

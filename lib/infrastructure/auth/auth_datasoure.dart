@@ -119,4 +119,14 @@ class AuthDatasoure implements AuthRepository {
       return left(const AuthFailure.serverError());
     }
   }
+
+  @override
+  Future<Either<AuthFailure, User>> getCurrentUser() async {
+    final user = firebaseAuth.currentUser;
+    if (user != null) {
+      return right(user);
+    } else {
+      return left(const AuthFailure.unAuthenticated());
+    }
+  }
 }

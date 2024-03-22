@@ -17,9 +17,6 @@ class SplashPage extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<AuthCubit>()..checkAuth(),
         ),
-        BlocProvider(
-          create: (context) => getIt<AuthenticationCubit>(),
-        ),
       ],
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
