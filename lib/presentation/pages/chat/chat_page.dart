@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +12,7 @@ import 'package:kochat/application/authentication/cubit/authentication_cubit.dar
 import 'package:kochat/application/chat/chat_data_cubit.dart';
 import 'package:kochat/application/room/room_cubit.dart';
 import 'package:kochat/injection.dart';
+import 'package:kochat/util/file_util.dart';
 import 'package:uuid/uuid.dart';
 
 @RoutePage()
@@ -41,6 +44,104 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
   }
 
+  void _handleAtachmentPressed() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) => SafeArea(
+        child: SizedBox(
+          height: 144,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              TextButton(
+                onPressed: () async {
+                  Navigator.pop(context);
+                  // _handleImageSelection();
+                  final data = await FileUtil.pickImages();
+                  //send directly
+                  if (data != null) {
+                    //send image
+                    roomCubit.uploadImage(data, widget.room.id);
+                    //set name and size
+                    chatDataCubit.setCurrFile(data);
+                  }
+                },
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Photo'),
+                ),
+              ),
+              TextButton(
+                onPressed: () async {
+                  Navigator.pop(context);
+                  // _handleFileSelection();
+                },
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('File'),
+                ),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Cancel'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _handlePreviewDataFetched(
+    types.TextMessage message,
+    types.PreviewData previewData,
+  ) {
+    final updatedMessage = message.copyWith(previewData: previewData);
+
+    FirebaseChatCore.instance.updateMessage(updatedMessage, widget.room.id);
+  }
+  // void _handleImageSelection() async {
+  //   final result = await ImagePicker().pickImage(
+  //     imageQuality: 70,
+  //     maxWidth: 1440,
+  //     source: ImageSource.gallery,
+  //   );
+
+  //   if (result != null) {
+  //     _setAttachmentUploading(true);
+  //     final file = File(result.path);
+  //     final size = file.lengthSync();
+  //     final bytes = await result.readAsBytes();
+  //     final image = await decodeImageFromList(bytes);
+  //     final name = result.name;
+
+  //     try {
+  //       final reference = FirebaseStorage.instance.ref(name);
+  //       await reference.putFile(file);
+  //       final uri = await reference.getDownloadURL();
+
+  //       final message = types.PartialImage(
+  //         height: image.height.toDouble(),
+  //         name: name,
+  //         size: size,
+  //         uri: uri,
+  //         width: image.width.toDouble(),
+  //       );
+
+  //       FirebaseChatCore.instance.sendMessage(
+  //         message,
+  //         widget.room.id,
+  //       );
+  //       _setAttachmentUploading(false);
+  //     } finally {
+  //       _setAttachmentUploading(false);
+  //     }
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -58,33 +159,55 @@ class _ChatPageState extends State<ChatPage> {
         listener: (context, state) {
           state.maybeMap(
             orElse: () {},
+            onImageUploaded: (e) {
+              //create partial image.
+              final file = chatDataCubit.state.file;
+              if (file != null) {
+                final partialImage = types.PartialImage(
+                  size: file.lengthSync(),
+                  name: file.path.split('/').last,
+                  uri: e.uri,
+                );
+
+                roomCubit.sendMessage(partialImage, widget.room.id);
+              }
+            },
             onMessageSent: (value) {},
             onWatchMessages: (value) {
-              print(value);
-
               chatDataCubit.setMessages(value.messages);
             },
           );
         },
-        child: Scaffold(
-          body: BlocBuilder<ChatDataCubit, ChatDataState>(
-            builder: (context, state) {
-              return Chat(
-                messages: state.messages,
-                showUserNames: true,
-                showUserAvatars: true,
-                onAttachmentPressed: () {},
-                onSendPressed: (text) {
-                  final messages = types.PartialText(
-                    text: text.text,
-                  );
-                  roomCubit.sendMessage(messages, state.getRoomId);
-                  chatDataCubit.updateLastMessage(messages);
-                },
-                user: state.getAuthor(),
-              );
-            },
-          ),
+        child: BlocBuilder<ChatDataCubit, ChatDataState>(
+          builder: (context, state) {
+            return Scaffold(
+              body: Chat(
+                  messages: chatDataCubit.state.messages,
+                  showUserNames: true,
+                  showUserAvatars: true,
+                  isAttachmentUploading: false,
+                  onPreviewDataFetched: _handlePreviewDataFetched,
+                  theme: DefaultChatTheme(
+                    inputMargin: const EdgeInsets.all(10),
+                    inputTextColor: Colors.white,
+                    inputBackgroundColor: Colors.blueGrey.shade300,
+                    inputBorderRadius:
+                        const BorderRadius.all(Radius.circular(10)),
+                  ),
+                  onAttachmentPressed: _handleAtachmentPressed,
+                  onSendPressed: (text) {
+                    final messages = types.PartialText(
+                      text: text.text,
+                    );
+                    context.read<RoomCubit>().sendMessage(
+                          messages,
+                          chatDataCubit.state.getRoomId,
+                        );
+                    chatDataCubit.updateLastMessage(messages);
+                  },
+                  user: chatDataCubit.state.getAuthor()),
+            );
+          },
         ),
       ),
     );

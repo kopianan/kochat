@@ -1,14 +1,19 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kochat/domain/room/room_failure.dart';
 import 'package:kochat/domain/room/room_repository.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:mime/mime.dart';
 
 @Singleton(as: RoomRepository)
 class RoomDatasource implements RoomRepository {
-  RoomDatasource(this.fbChat);
+  RoomDatasource(this.fbChat, this.fbStorage);
   final FirebaseChatCore fbChat;
+  final FirebaseStorage fbStorage;
 
   @override
   Stream<Either<RoomFailure, List<types.Room>>> watchRooms() async* {
@@ -59,5 +64,20 @@ class RoomDatasource implements RoomRepository {
     } catch (e) {
       return left(const RoomFailure.serverError());
     }
+  }
+
+  @override
+  Future<Either<RoomFailure, String>> uploadImage<T>(
+      File file, String roomId) async {
+    //check file first.
+    final mimeType = lookupMimeType(file.path);
+    String path = 'other';
+    if (mimeType != null) {
+      path = mimeType.split('/').first;
+    }
+    final ref = fbStorage.ref(roomId).child(path);
+    await ref.putFile(file);
+    final uri = await ref.getDownloadURL();
+    return right(uri);
   }
 }

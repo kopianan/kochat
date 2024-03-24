@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ChatDataState {
   List<Message> get messages => throw _privateConstructorUsedError;
+  File? get file => throw _privateConstructorUsedError;
   types.Room? get room => throw _privateConstructorUsedError;
   types.User get currentUser => throw _privateConstructorUsedError;
 
@@ -31,7 +32,11 @@ abstract class $ChatDataStateCopyWith<$Res> {
           ChatDataState value, $Res Function(ChatDataState) then) =
       _$ChatDataStateCopyWithImpl<$Res, ChatDataState>;
   @useResult
-  $Res call({List<Message> messages, types.Room? room, types.User currentUser});
+  $Res call(
+      {List<Message> messages,
+      File? file,
+      types.Room? room,
+      types.User currentUser});
 }
 
 /// @nodoc
@@ -48,6 +53,7 @@ class _$ChatDataStateCopyWithImpl<$Res, $Val extends ChatDataState>
   @override
   $Res call({
     Object? messages = null,
+    Object? file = freezed,
     Object? room = freezed,
     Object? currentUser = null,
   }) {
@@ -56,6 +62,10 @@ class _$ChatDataStateCopyWithImpl<$Res, $Val extends ChatDataState>
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File?,
       room: freezed == room
           ? _value.room
           : room // ignore: cast_nullable_to_non_nullable
@@ -76,7 +86,11 @@ abstract class _$$ChatDataStateImplCopyWith<$Res>
       __$$ChatDataStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Message> messages, types.Room? room, types.User currentUser});
+  $Res call(
+      {List<Message> messages,
+      File? file,
+      types.Room? room,
+      types.User currentUser});
 }
 
 /// @nodoc
@@ -91,6 +105,7 @@ class __$$ChatDataStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? messages = null,
+    Object? file = freezed,
     Object? room = freezed,
     Object? currentUser = null,
   }) {
@@ -99,6 +114,10 @@ class __$$ChatDataStateImplCopyWithImpl<$Res>
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File?,
       room: freezed == room
           ? _value.room
           : room // ignore: cast_nullable_to_non_nullable
@@ -116,6 +135,7 @@ class __$$ChatDataStateImplCopyWithImpl<$Res>
 class _$ChatDataStateImpl extends _ChatDataState {
   const _$ChatDataStateImpl(
       {final List<Message> messages = const [],
+      this.file,
       this.room,
       required this.currentUser})
       : _messages = messages,
@@ -131,13 +151,15 @@ class _$ChatDataStateImpl extends _ChatDataState {
   }
 
   @override
+  final File? file;
+  @override
   final types.Room? room;
   @override
   final types.User currentUser;
 
   @override
   String toString() {
-    return 'ChatDataState(messages: $messages, room: $room, currentUser: $currentUser)';
+    return 'ChatDataState(messages: $messages, file: $file, room: $room, currentUser: $currentUser)';
   }
 
   @override
@@ -146,6 +168,7 @@ class _$ChatDataStateImpl extends _ChatDataState {
         (other.runtimeType == runtimeType &&
             other is _$ChatDataStateImpl &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
+            (identical(other.file, file) || other.file == file) &&
             (identical(other.room, room) || other.room == room) &&
             (identical(other.currentUser, currentUser) ||
                 other.currentUser == currentUser));
@@ -153,7 +176,7 @@ class _$ChatDataStateImpl extends _ChatDataState {
 
   @override
   int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_messages), room, currentUser);
+      const DeepCollectionEquality().hash(_messages), file, room, currentUser);
 
   @JsonKey(ignore: true)
   @override
@@ -165,12 +188,15 @@ class _$ChatDataStateImpl extends _ChatDataState {
 abstract class _ChatDataState extends ChatDataState {
   const factory _ChatDataState(
       {final List<Message> messages,
+      final File? file,
       final types.Room? room,
       required final types.User currentUser}) = _$ChatDataStateImpl;
   const _ChatDataState._() : super._();
 
   @override
   List<Message> get messages;
+  @override
+  File? get file;
   @override
   types.Room? get room;
   @override

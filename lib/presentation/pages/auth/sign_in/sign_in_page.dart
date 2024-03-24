@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kochat/application/auth/auth_cubit.dart';
 import 'package:kochat/application/authentication/cubit/authentication_cubit.dart';
@@ -30,11 +31,17 @@ class _SignInPageState extends State<SignInPage> {
       child: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           state.maybeMap(
-            orElse: () {},
+            orElse: () {
+              EasyLoading.dismiss();
+            },
+            loading: (e) {
+              EasyLoading.show();
+            },
             loginFailed: (e) {
-              print(e.toString());
+              EasyLoading.dismiss();
             },
             loginSuccess: (value) {
+              EasyLoading.dismiss();
               getIt<KopiRouter>().replaceAll([const HomeRoute()]);
             },
           );
@@ -44,20 +51,21 @@ class _SignInPageState extends State<SignInPage> {
           body: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Create an account!",
+                      "Hi, Please Sign In !",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10),
-                    Text("Create an account so you can use this application")
+                    Text("Sign in account...")
                   ],
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 50),
                 Column(
                   children: [
                     TextFormField(
@@ -82,11 +90,25 @@ class _SignInPageState extends State<SignInPage> {
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    PrimaryButton(
-                        onTap: () {
-                          authCubi.signInUsingEmail(emailCtr.text, pwdCtr.text);
-                        },
-                        label: "Sign In"),
+                    BlocBuilder<AuthCubit, AuthState>(
+                      builder: (context, state) {
+                        return PrimaryButton(
+                          isLoading: state.maybeMap(
+                            orElse: () {
+                              return false;
+                            },
+                            loading: (e) {
+                              return true;
+                            },
+                          ),
+                          onTap: () {
+                            authCubi.signInUsingEmail(
+                                emailCtr.text, pwdCtr.text);
+                          },
+                          label: "Sign In",
+                        );
+                      },
+                    ),
                     const SizedBox(height: 20),
                     Row(
                       children: [
@@ -113,6 +135,7 @@ class _SignInPageState extends State<SignInPage> {
                       height: 50,
                       width: double.infinity,
                       child: SignInButton(
+                        elevation: 10,
                         Buttons.google,
                         shape: const RoundedRectangleBorder(
                             borderRadius:
@@ -128,6 +151,7 @@ class _SignInPageState extends State<SignInPage> {
                       height: 50,
                       width: double.infinity,
                       child: SignInButton(
+                        elevation: 10,
                         Buttons.apple,
                         shape: const RoundedRectangleBorder(
                             borderRadius:

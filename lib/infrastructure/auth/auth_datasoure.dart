@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,10 +19,11 @@ class AuthDatasoure implements AuthRepository {
   final GoogleSignIn googleSignIn;
 
   void _createUserOnFirestore(auth.User user) async {
+    final id = Random().nextInt(71) + 1;
     final chatUser = chatType.User(
       firstName: user.displayName ?? "",
       id: user.uid,
-      imageUrl: user.photoURL ?? 'https://i.pravatar.cc/300',
+      imageUrl: user.photoURL ?? 'https://i.pravatar.cc/150?img=$id',
       createdAt: DateTime.now().millisecondsSinceEpoch,
       updatedAt: DateTime.now().millisecondsSinceEpoch,
     );

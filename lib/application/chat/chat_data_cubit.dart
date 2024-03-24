@@ -1,4 +1,8 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 
 import 'package:flutter_chat_types/src/message.dart';
 import 'package:flutter_chat_types/src/user.dart';
@@ -15,6 +19,10 @@ part 'chat_data_cubit.freezed.dart';
 @injectable
 class ChatDataCubit extends Cubit<ChatDataState> {
   ChatDataCubit() : super(ChatDataState.initial());
+
+  void setCurrFile(File? file) {
+    emit(state.copyWith(file: file));
+  }
 
   void updateLastMessage<T>(T message) {
     Room? updatedRoom;

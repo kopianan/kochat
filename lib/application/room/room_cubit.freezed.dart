@@ -24,6 +24,7 @@ mixin _$RoomState {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) =>
@@ -36,6 +37,7 @@ mixin _$RoomState {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) =>
@@ -48,6 +50,7 @@ mixin _$RoomState {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -61,6 +64,7 @@ mixin _$RoomState {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) =>
@@ -73,6 +77,7 @@ mixin _$RoomState {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) =>
@@ -85,6 +90,7 @@ mixin _$RoomState {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -153,6 +159,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -168,6 +175,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -183,6 +191,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -202,6 +211,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -217,6 +227,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -232,6 +243,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -291,6 +303,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -306,6 +319,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -321,6 +335,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -340,6 +355,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -355,6 +371,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -370,6 +387,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -429,6 +447,7 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -444,6 +463,7 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -459,6 +479,7 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -478,6 +499,7 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -493,6 +515,7 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -508,6 +531,7 @@ class _$OnWatchRoomErrorImpl implements _OnWatchRoomError {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -568,6 +592,7 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -583,6 +608,7 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -598,6 +624,7 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -617,6 +644,7 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -632,6 +660,7 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -647,6 +676,7 @@ class _$OnWatchMessageErrorImpl implements _OnWatchMessageError {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -732,6 +762,7 @@ class _$OnRoomCreatedImpl implements _OnRoomCreated {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -747,6 +778,7 @@ class _$OnRoomCreatedImpl implements _OnRoomCreated {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -762,6 +794,7 @@ class _$OnRoomCreatedImpl implements _OnRoomCreated {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -781,6 +814,7 @@ class _$OnRoomCreatedImpl implements _OnRoomCreated {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -796,6 +830,7 @@ class _$OnRoomCreatedImpl implements _OnRoomCreated {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -811,6 +846,7 @@ class _$OnRoomCreatedImpl implements _OnRoomCreated {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -903,6 +939,7 @@ class _$OnMessageSentImpl implements _OnMessageSent {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -918,6 +955,7 @@ class _$OnMessageSentImpl implements _OnMessageSent {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -933,6 +971,7 @@ class _$OnMessageSentImpl implements _OnMessageSent {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -952,6 +991,7 @@ class _$OnMessageSentImpl implements _OnMessageSent {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -967,6 +1007,7 @@ class _$OnMessageSentImpl implements _OnMessageSent {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -982,6 +1023,7 @@ class _$OnMessageSentImpl implements _OnMessageSent {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -1000,6 +1042,182 @@ abstract class _OnMessageSent implements RoomState {
   dynamic get partialMessage;
   @JsonKey(ignore: true)
   _$$OnMessageSentImplCopyWith<_$OnMessageSentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OnImageUploadedImplCopyWith<$Res> {
+  factory _$$OnImageUploadedImplCopyWith(_$OnImageUploadedImpl value,
+          $Res Function(_$OnImageUploadedImpl) then) =
+      __$$OnImageUploadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uri});
+}
+
+/// @nodoc
+class __$$OnImageUploadedImplCopyWithImpl<$Res>
+    extends _$RoomStateCopyWithImpl<$Res, _$OnImageUploadedImpl>
+    implements _$$OnImageUploadedImplCopyWith<$Res> {
+  __$$OnImageUploadedImplCopyWithImpl(
+      _$OnImageUploadedImpl _value, $Res Function(_$OnImageUploadedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uri = null,
+  }) {
+    return _then(_$OnImageUploadedImpl(
+      null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnImageUploadedImpl implements _OnImageUploaded {
+  const _$OnImageUploadedImpl(this.uri);
+
+  @override
+  final String uri;
+
+  @override
+  String toString() {
+    return 'RoomState.onImageUploaded(uri: $uri)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnImageUploadedImpl &&
+            (identical(other.uri, uri) || other.uri == uri));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uri);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnImageUploadedImplCopyWith<_$OnImageUploadedImpl> get copyWith =>
+      __$$OnImageUploadedImplCopyWithImpl<_$OnImageUploadedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() onWatchRoomError,
+    required TResult Function() onWatchMessageError,
+    required TResult Function(types.Room room) onRoomCreated,
+    required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
+    required TResult Function(List<Message> messages) onWatchMessages,
+    required TResult Function(List<Room> room) onWatchRooms,
+  }) {
+    return onImageUploaded(uri);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? onWatchRoomError,
+    TResult? Function()? onWatchMessageError,
+    TResult? Function(types.Room room)? onRoomCreated,
+    TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
+    TResult? Function(List<Message> messages)? onWatchMessages,
+    TResult? Function(List<Room> room)? onWatchRooms,
+  }) {
+    return onImageUploaded?.call(uri);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? onWatchRoomError,
+    TResult Function()? onWatchMessageError,
+    TResult Function(types.Room room)? onRoomCreated,
+    TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
+    TResult Function(List<Message> messages)? onWatchMessages,
+    TResult Function(List<Room> room)? onWatchRooms,
+    required TResult orElse(),
+  }) {
+    if (onImageUploaded != null) {
+      return onImageUploaded(uri);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_OnWatchRoomError value) onWatchRoomError,
+    required TResult Function(_OnWatchMessageError value) onWatchMessageError,
+    required TResult Function(_OnRoomCreated value) onRoomCreated,
+    required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
+    required TResult Function(_OnWatchMessages value) onWatchMessages,
+    required TResult Function(_OnWatchRooms value) onWatchRooms,
+  }) {
+    return onImageUploaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_OnWatchRoomError value)? onWatchRoomError,
+    TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult? Function(_OnRoomCreated value)? onRoomCreated,
+    TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
+    TResult? Function(_OnWatchMessages value)? onWatchMessages,
+    TResult? Function(_OnWatchRooms value)? onWatchRooms,
+  }) {
+    return onImageUploaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_OnWatchRoomError value)? onWatchRoomError,
+    TResult Function(_OnWatchMessageError value)? onWatchMessageError,
+    TResult Function(_OnRoomCreated value)? onRoomCreated,
+    TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
+    TResult Function(_OnWatchMessages value)? onWatchMessages,
+    TResult Function(_OnWatchRooms value)? onWatchRooms,
+    required TResult orElse(),
+  }) {
+    if (onImageUploaded != null) {
+      return onImageUploaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnImageUploaded implements RoomState {
+  const factory _OnImageUploaded(final String uri) = _$OnImageUploadedImpl;
+
+  String get uri;
+  @JsonKey(ignore: true)
+  _$$OnImageUploadedImplCopyWith<_$OnImageUploadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1081,6 +1299,7 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -1096,6 +1315,7 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -1111,6 +1331,7 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -1130,6 +1351,7 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -1145,6 +1367,7 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -1160,6 +1383,7 @@ class _$OnWatchMessagesImpl implements _OnWatchMessages {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),
@@ -1257,6 +1481,7 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
     required TResult Function() onWatchMessageError,
     required TResult Function(types.Room room) onRoomCreated,
     required TResult Function(dynamic partialMessage) onMessageSent,
+    required TResult Function(String uri) onImageUploaded,
     required TResult Function(List<Message> messages) onWatchMessages,
     required TResult Function(List<Room> room) onWatchRooms,
   }) {
@@ -1272,6 +1497,7 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
     TResult? Function()? onWatchMessageError,
     TResult? Function(types.Room room)? onRoomCreated,
     TResult? Function(dynamic partialMessage)? onMessageSent,
+    TResult? Function(String uri)? onImageUploaded,
     TResult? Function(List<Message> messages)? onWatchMessages,
     TResult? Function(List<Room> room)? onWatchRooms,
   }) {
@@ -1287,6 +1513,7 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
     TResult Function()? onWatchMessageError,
     TResult Function(types.Room room)? onRoomCreated,
     TResult Function(dynamic partialMessage)? onMessageSent,
+    TResult Function(String uri)? onImageUploaded,
     TResult Function(List<Message> messages)? onWatchMessages,
     TResult Function(List<Room> room)? onWatchRooms,
     required TResult orElse(),
@@ -1306,6 +1533,7 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
     required TResult Function(_OnWatchMessageError value) onWatchMessageError,
     required TResult Function(_OnRoomCreated value) onRoomCreated,
     required TResult Function(_OnMessageSent value) onMessageSent,
+    required TResult Function(_OnImageUploaded value) onImageUploaded,
     required TResult Function(_OnWatchMessages value) onWatchMessages,
     required TResult Function(_OnWatchRooms value) onWatchRooms,
   }) {
@@ -1321,6 +1549,7 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
     TResult? Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult? Function(_OnRoomCreated value)? onRoomCreated,
     TResult? Function(_OnMessageSent value)? onMessageSent,
+    TResult? Function(_OnImageUploaded value)? onImageUploaded,
     TResult? Function(_OnWatchMessages value)? onWatchMessages,
     TResult? Function(_OnWatchRooms value)? onWatchRooms,
   }) {
@@ -1336,6 +1565,7 @@ class _$OnWatchRoomsImpl implements _OnWatchRooms {
     TResult Function(_OnWatchMessageError value)? onWatchMessageError,
     TResult Function(_OnRoomCreated value)? onRoomCreated,
     TResult Function(_OnMessageSent value)? onMessageSent,
+    TResult Function(_OnImageUploaded value)? onImageUploaded,
     TResult Function(_OnWatchMessages value)? onWatchMessages,
     TResult Function(_OnWatchRooms value)? onWatchRooms,
     required TResult orElse(),

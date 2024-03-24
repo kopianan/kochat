@@ -9,6 +9,7 @@ class RoomState with _$RoomState {
   const factory RoomState.onRoomCreated(Room room) = _OnRoomCreated;
   const factory RoomState.onMessageSent(dynamic partialMessage) =
       _OnMessageSent;
+  const factory RoomState.onImageUploaded(String uri) = _OnImageUploaded;
   const factory RoomState.onWatchMessages(List<Message> messages) =
       _OnWatchMessages;
   const factory RoomState.onWatchRooms(List<Room> room) = _OnWatchRooms;

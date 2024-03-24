@@ -5,6 +5,7 @@ class ChatDataState with _$ChatDataState {
   const ChatDataState._();
   const factory ChatDataState({
     @Default([]) List<Message> messages,
+    File? file,
     Room? room,
     required User currentUser,
   }) = _ChatDataState;

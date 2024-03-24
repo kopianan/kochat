@@ -4,11 +4,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kochat/application/auth/auth_cubit.dart';
 import 'package:kochat/application/authentication/cubit/authentication_cubit.dart';
 import 'package:kochat/injection.dart';
+import 'package:kochat/main.dart';
 import 'package:kochat/presentation/routes/kopi_router.dart';
 
 @RoutePage()
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    initEasyLoading();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

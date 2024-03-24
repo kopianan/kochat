@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kochat/theme/kopi_color.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class SecondaryButton extends StatelessWidget {
+  const SecondaryButton({
     super.key,
     this.height = 50,
     this.width = double.infinity,
@@ -24,13 +24,13 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onTap,
         style: ButtonStyle(
-            elevation: const MaterialStatePropertyAll(10),
+          elevation: const MaterialStatePropertyAll(10),
             shape: const MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)))),
-            foregroundColor: const MaterialStatePropertyAll(Colors.white),
-            backgroundColor: MaterialStatePropertyAll(KopiColor.primaryColor)),
+            foregroundColor: MaterialStatePropertyAll(KopiColor.primaryColor),
+            backgroundColor: const MaterialStatePropertyAll(Colors.white)),
         child: isLoading
-            ? const CircularProgressIndicator(color: Colors.white)
+            ? CircularProgressIndicator(color: KopiColor.primaryColor)
             : Text(label),
       ),
     );
